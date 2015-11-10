@@ -1,0 +1,236 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Sign",
+				"SignUpAdmin"
+			],
+			[
+				"try",
+				"trydjango18"
+			],
+			[
+				"Clr",
+				"Clear2"
+			],
+			[
+				"set",
+				"Set2"
+			],
+			[
+				"inline",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/css/navbar-static-top.css",
+		"/C/Users/Gavin/Desktop/Django Tutorials",
+		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/img/example.txt",
+		"/C/Users/Gavin/trydjango18/src/newsletter/templates/home.html",
+		"/C/Users/Gavin/Desktop/Networking/Chapter1",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/universal.css",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/index.css",
+		"/C/Sites/HKN_Website/app/views/home/info2.html.erb",
+		"/C/Sites/HKN_Website/app/views/home/info1.html.erb",
+		"/C/Sites/HKN_Website/config/routes.rb",
+		"/C/Sites/HKN_Website/app/views/home/homeView.html.erb",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/home.css",
+		"/C/Sites/HKN_Website/app/views/welcome/index.html.erb",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/slick-theme.css",
+		"/C/Sites/HKN_Website/app/assets/javascripts/jquery.min.js",
+		"/C/Sites/HKN_Website/app/views/calendar/calendarView.html.erb",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/Calendar.css",
+		"/C/Sites/HKN_Website/config/application.rb",
+		"/C/Sites/HKN_Website/app/views/electees/electeesView.html.erb",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/calendar.css.scss",
+		"/C/Sites/HKN_Website/app/assets/stylesheets/home.css.scss",
+		"/C/Sites/HKN_Website/app/views/welcome/electees.html.erb",
+		"/C/Users/Gavin/PhpstormProjects/HKN_Website_New/Website_files/calendar.html.erb",
+		"/C/Sites/HKN_Website/app/views/welcome/config.inc.html.erb",
+		"/C/Sites/HKN_Website/Gemfile",
+		"/C/Users/Gavin/Desktop/RoR_Notes.txt",
+		"/C/Sites/myrubyblog/config/routes.rb",
+		"/C/Sites/myrubyblog/app/views/layouts/application.html.erb",
+		"/C/Users/Gavin/Desktop/HKN/XUbuntu.txt",
+		"/C/Users/Gavin/RailsApps/blog/app/views/articles/edit.html.erb",
+		"/C/Users/Gavin/RailsApps/blog/app/views/articles/new.html.erb",
+		"/C/Users/Gavin/RailsApps/blog/app/views/articles/_form.html.erb",
+		"/C/Users/Gavin/RailsApps/RailsNotes.rb",
+		"/C/Users/Gavin/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Program Files/Sublime Text 3/Packages/Default.sublime-package",
+		"/C/Program Files/Sublime Text 3/Packages/Default.sublime-keymap",
+		"/C/Program Files/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Gavin/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Gavin/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Gavin/RailsApps/blog/config/database.yml",
+		"/C/Users/Gavin/RailsApps/blog/config/routes.rb",
+		"/C/Users/Gavin/RailsApps/blog/app/views/welcome/index.html.erb",
+		"/C/Users/Gavin/RailsApps/blog/db/migrate/20151011035526_create_articles.rb",
+		"/C/Users/Gavin/RailsApps/blog/app/controllers/welcome_controller.rb",
+		"/C/Users/Gavin/RailsApps/blog/app/views/layouts/application.html.erb"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"infobo",
+			"infobox",
+			"background",
+			"ajax",
+			"ajax-loader",
+			"ajax",
+			"images"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Store.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 224.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

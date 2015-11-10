@@ -1,0 +1,55 @@
+from django.db import models
+
+# Create your models here.
+class User(models.Model):
+	address = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
+	password = models.CharField(max_length=100)
+	email = models.EmailField(max_length=100)
+	is_staff = models.BooleanField()
+	
+	def __str__(self):
+		return str(self.id)
+    	
+
+class Order(models.Model):
+	user = models.ForeignKey(User)
+	date = models.DateTimeField(auto_now_add=True)
+	paid = models.BooleanField()
+
+	def __str__(self):
+		return str(self.id)
+
+
+class Supplier(models.Model):
+	name = models.CharField(max_length=100)
+
+	def __str__(self):
+		return str(self.id)
+
+
+class Product(models.Model):
+	orders = models.ManyToManyField(Order, through='Contain')
+	supplier = models.ForeignKey(Supplier)
+	name = models.CharField(max_length=100)
+	description = models.CharField(max_length=100)
+	stockQuantity = models.IntegerField()
+	price = models.DecimalField(max_digits=6, decimal_places=2)
+	active = models.BooleanField()
+	discount = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
+
+
+	def __str__(self):
+		return str(self.id)
+
+
+class Contain(models.Model):
+	order = models.ForeignKey(Order)
+	product = models.ForeignKey(Product)
+	quantity = models.IntegerField()
+
+
+	def __str__(self):
+		return str(self.id)
+
+
