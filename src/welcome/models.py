@@ -12,9 +12,9 @@ class User(models.Model):
 		return str(self.id)
     	
 
-class Order(models.Model):
+class customerOrder(models.Model):
 	user = models.ForeignKey(User)
-	date = models.DateTimeField(auto_now_add=True)
+	createDate = models.DateTimeField(auto_now_add=True)
 	paid = models.BooleanField()
 
 	def __str__(self):
@@ -29,27 +29,32 @@ class Supplier(models.Model):
 
 
 class Product(models.Model):
-	orders = models.ManyToManyField(Order, through='Contain')
-	supplier = models.ForeignKey(Supplier)
-	name = models.CharField(max_length=100)
+	customerOrders = models.ManyToManyField(customerOrder, through='Contain')
+	active = models.BooleanField()
 	description = models.CharField(max_length=100)
 	stockQuantity = models.IntegerField()
 	price = models.DecimalField(max_digits=6, decimal_places=2)
-	active = models.BooleanField()
+	name = models.CharField(max_length=100)
+	supplier = models.ForeignKey(Supplier)
+
 	discount = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
+	# @property 
+	# def product_id(self):
+	# 	return self.id
 
 	def __str__(self):
+		#return '%s %s' % (self.id, self.description)
 		return str(self.id)
 
 
 class Contain(models.Model):
-	order = models.ForeignKey(Order)
+	customerOrder = models.ForeignKey(customerOrder, default='1')
 	product = models.ForeignKey(Product)
 	quantity = models.IntegerField()
 
 
 	def __str__(self):
-		return str(self.id)
+		return '%s %s' % (self.id, self.customerOrder)
 
 

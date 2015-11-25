@@ -1,17 +1,17 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import User, Order, Supplier, Product, Contain
+from .models import User, customerOrder, Supplier, Product, Contain
 
 class UserAdmin(admin.ModelAdmin):	#show multiple fields in the admin
 	list_display = ["__str__", "address", "name", "password", "email", "is_staff"]
 
 admin.site.register(User, UserAdmin)
 
-class OrderAdmin(admin.ModelAdmin):	#show multiple fields in the admin
-	list_display = ["__str__", "user", "date", "paid"]
+class customerOrderAdmin(admin.ModelAdmin):	#show multiple fields in the admin
+	list_display = ["__str__", "user", "createDate", "paid"]
 
-admin.site.register(Order, OrderAdmin)
+admin.site.register(customerOrder, customerOrderAdmin)
 
 class SupplierAdmin(admin.ModelAdmin):	#show multiple fields in the admin
 	list_display = ["__str__", "name"]
@@ -24,6 +24,6 @@ class ProductAdmin(admin.ModelAdmin):	#show multiple fields in the admin
 admin.site.register(Product, ProductAdmin)
 
 class ContainsAdmin(admin.ModelAdmin):	#show multiple fields in the admin
-	list_display = ["__str__", "order", "product", "quantity"]
+	list_display = ["__str__", "customerOrder", "product", "quantity"]
 
 admin.site.register(Contain, ContainsAdmin)

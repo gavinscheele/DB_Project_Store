@@ -6,9 +6,9 @@ class UserSignUpForm(forms.ModelForm):
 		model = User
 		fields = ['address', 'name', 'password', 'email', 'is_staff']
 
-	def clean_email(self):
-		email = self.cleaned_data.get('email')
-		email_base, provider = email.split('@')
-		domain, extension = provider.split('.')
+	# def clean_email(self):
+		# email = self.cleaned_data.get('email')
+		# email_base, provider = email.split('@')
+		# domain, extension = provider.split('.')
 		
-		return email
+		# return email
