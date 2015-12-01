@@ -16,8 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from welcome import views
+welcome_view = views;
+from store_user import views
+store_user_view = views;
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.welcome, name="welcome")
+    url(r'^$', welcome_view.welcome, name="welcome"),
+    url(r'^store_user/', store_user_view.store_user, name="store_user")
 ]
