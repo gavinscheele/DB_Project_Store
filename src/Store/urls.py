@@ -24,5 +24,6 @@ store_user_view = views;
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', welcome_view.welcome, name="welcome"),
-    url(r'^store_user/', store_user_view.store_user, name="store_user")
+    url(r'^store_user/', store_user_view.store_user, name="store_user"),
+    url(r'^store_user_signup/', store_user_view.store_user_signup, name="store_user_signup")
 ]
