@@ -1,15 +1,22 @@
 from django.shortcuts import render
-from .forms import UserSignUpForm
-
+from . import models
+from django_tables2   import RequestConfig
+from . import tables
+from . import forms
 # Create your views here.
 def welcome(request):
 	#request.session['cat'] = True;
-	form = UserSignUpForm(request.POST or None)
+	product_name = request.POST.get('Search_Products')
+	if product_name:
+		table = tables.ProductTable(models.Product.objects.filter(name__contains=product_name))
+	else:
+		table = tables.ProductTable(models.Product.objects.all())
+
 	print(request)
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
+	RequestConfig(request).configure(table)
 	context = {
-		"form": form,
+		'table'	:	table,
+		'product_search_form' : forms.ProductSearchForm,
+
 	}
 	return render(request, "welcome.html", context)

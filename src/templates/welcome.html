@@ -1,12 +1,29 @@
 {% load staticfiles %}
 
-<link href="{% static 'css/welcome.css' %}" rel="stylesheet">
 <!-- <script type="text/javascript" src="{% static 'js/SOMEFILENAME.js' %}"></script>
  -->
-<h1>Create User</h1>
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/paleblue.css' %}" />
+        <link href="{% static 'css/welcome.css' %}" rel="stylesheet">
 
-<form method='POST' action=''> {% csrf_token %}
-{{ form.as_p }}
-
-<input type='submit' value='Sign Up' />
-</form>
+    </head>
+    <body class="pageContainer">
+    	<div class="loginRegister">
+    		<!-- <a href="{% url  %}">Login</a>
+			<a href="{% url %}">Register</a> -->
+    	</div>
+    	<div class="centerContent">
+	    	<h1>Welcome</h1>
+	    	<div style="margin-bottom:10px;">
+		    	<form method="POST" style="display:inline;">{% csrf_token %}
+		    		{{product_search_form}}
+		    		<button type="submit">Search</button>
+				</form>
+			</div>
+	        {% render_table table %}
+	    </div>
+    </body>
+</html>
