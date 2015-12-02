@@ -15,10 +15,10 @@ def store_user(request):
 	if form.is_valid():
 		inEmail = form.cleaned_data['email']
 		inPassword = form.cleaned_data['password']
-
-		userQuery = User.objects.filter(email=inEmail, password=inPassword)		
-		if userQuery: #If this set is not empty, then this user exists.
-			print("in if. user exists")
+		
+		if User.objects.filter(email=inEmail, password=inPassword): #If this set is not empty, then this user exists.
+			request.session['UserID'] = User.objects.get(email=inEmail, password=inPassword).id;
+			return HttpResponseRedirect(reverse('store_user')) #*****PAGE THAT COMES NEXT**********
 		else: #user does not exist.
 			extra = "No user found with these credentials."
 	context = {
