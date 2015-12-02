@@ -9,10 +9,9 @@ class CheckBoxColumnWithName(tables.CheckBoxColumn):
 
 
 class ProductTable(tables.Table):
-	selection = CheckBoxColumnWithName(accessor="pk", attrs = { "th__input": 
+	selection = CheckBoxColumnWithName(accessor="pk", attrs = { "td__input": 
                                         {"onclick": "toggle(this)"}},
-                                        orderable=False, verbose_name="selection")
-	selection.label = "selection"
+                                        orderable=False)
 
 	class Meta:
 		model = models.Product
