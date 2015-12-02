@@ -18,6 +18,7 @@ from django.contrib import admin
 from welcome import views as welcome_view
 from store_user import views as store_user_view
 from customer import views as customer_view
+from staff import views as staff_view
 
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     url(r'^$', welcome_view.welcome, name="welcome"),
     url(r'^store_user/', store_user_view.store_user, name="store_user"),
     url(r'^customer/', customer_view.customer, name="customer"),
-    url(r'^store_user_signup/', store_user_view.store_user_signup, name="store_user_signup")
+    url(r'^store_user_signup/', store_user_view.store_user_signup, name="store_user_signup"),
+    url(r'^staff/', staff_view.staff, name="staff")
 ]
