@@ -12,13 +12,16 @@
     </head>
     <body class="pageContainer">
     	<div class="loginRegister">
-    		<form action="{% url 'customer' %}">
+    		<form action="{% url 'store_user' %}">
     			<input type="submit" value="Login">
     		</form>
+            <form action="{% url 'store_user_signup' %}">
+                <input type="submit" value="Register">
+            </form>
 
     	</div>
     	<div class="centerContent">
-	    	<h1>Welcome</h1>
+	    	<h1>Welcome, Guest.</h1>
 	    	<div style="margin-bottom:10px;">
 		    	<form method="POST" style="display:inline;">{% csrf_token %}
 		    		{{product_search_form}}

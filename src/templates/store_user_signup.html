@@ -3,12 +3,17 @@
 <link href="{% static 'css/store_user_signup.css' %}" rel="stylesheet">
 <script type="text/javascript" src="{% static 'js/store_user_signup.js' %}"></script>
  
-<h1>storeusersignup</h1>
+<h1>Sign up!</h1>
 
 <form method='POST' action=''> 
 	{% csrf_token %}
 	{{ form.as_p }}
-<input type='submit' value='Sign Up'/>
+<input type='submit' value='Register'/>
 </form>
 
 <p>{{extra}}</p>
+
+<h3>Or, to log into an existing account, click here:</h3>
+<form action="{% url 'store_user' %}">
+	<input type="submit" value="Sign In">
+</form>

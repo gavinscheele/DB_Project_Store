@@ -3,12 +3,17 @@
 <link href="{% static 'css/store_user.css' %}" rel="stylesheet">
 <!-- <script type="text/javascript" src="{% static 'js/SOMEFILENAME.js' %}"></script>
  -->
-<h1>storeuser</h1>
+
+<h1>Log In!</h1>
 
 <form method='POST' action=''> 
 	{% csrf_token %}
 	{{form.as_p}}
 	<input type='submit' value='Sign In'/>
 </form>
-
 <p>{{extra}}</p>
+
+<h3>Or, to create a new account, click here:</h3>
+<form action="{% url 'store_user_signup' %}">
+	<input type="submit" value="Register">
+</form>

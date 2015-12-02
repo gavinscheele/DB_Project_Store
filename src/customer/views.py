@@ -6,7 +6,7 @@ from welcome import forms
 import json
 # Create your views here.
 def customer(request):
-	#request.session.get('cat')
+	UserID = request.session.get('UserID')
 	product_name = request.POST.get('Search_Products')
 	selected_products = request.POST.get('selected_products')
 	if product_name:

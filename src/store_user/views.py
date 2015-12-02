@@ -17,8 +17,12 @@ def store_user(request):
 		inPassword = form.cleaned_data['password']
 		
 		if User.objects.filter(email=inEmail, password=inPassword): #If this set is not empty, then this user exists.
-			request.session['UserID'] = User.objects.get(email=inEmail, password=inPassword).id;
-			return HttpResponseRedirect(reverse('store_user')) #*****PAGE THAT COMES NEXT**********
+			thisUser = User.objects.get(email=inEmail, password=inPassword)
+			request.session['UserID'] = thisUser.id
+			if thisUser.is_staff: #If the user is staff, take them to the staff page.
+				return HttpResponseRedirect(reverse('welcome')) #*****PAGE THAT COMES NEXT**********
+			else: #Otherwise, the user is just a customer and is directed to the regular customer view.
+				return HttpResponseRedirect(reverse('customer'))
 		else: #user does not exist.
 			extra = "No user found with these credentials."
 	context = {
