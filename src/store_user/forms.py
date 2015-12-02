@@ -4,9 +4,10 @@ from welcome.models import User  #instead of segmenting models based on app, all
 
 class UserSignInForm(forms.Form):
 		email = forms.EmailField(label='email address')
-		password = forms.CharField(label='password')
+		password = forms.CharField(label='password', widget=forms.PasswordInput())
 
 class UserSignUpForm(forms.ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput())
 	class Meta:
 		model = User
 		fields = ['address', 'name', 'password', 'email', 'is_staff']
