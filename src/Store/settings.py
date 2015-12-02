@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'welcome',
     'store_user',
-    'django_tables2'
+    'django_tables2',
+    'customer'
 )
 
 MIDDLEWARE_CLASSES = (

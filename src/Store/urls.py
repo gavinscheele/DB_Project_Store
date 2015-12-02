@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from welcome import views
-welcome_view = views;
-from store_user import views
-store_user_view = views;
+from welcome import views as welcome_view
+from store_user import views as store_user_view
+from customer import views as customer_view
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', welcome_view.welcome, name="welcome"),
-    url(r'^store_user/', store_user_view.store_user, name="store_user")
+    url(r'^store_user/', store_user_view.store_user, name="store_user"),
+    url(r'^customer/', customer_view.customer, name="customer")
+
 ]

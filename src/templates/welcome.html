@@ -12,8 +12,10 @@
     </head>
     <body class="pageContainer">
     	<div class="loginRegister">
-    		<!-- <a href="{% url  %}">Login</a>
-			<a href="{% url %}">Register</a> -->
+    		<form action="{% url 'customer' %}">
+    			<input type="submit" value="Login">
+    		</form>
+
     	</div>
     	<div class="centerContent">
 	    	<h1>Welcome</h1>
