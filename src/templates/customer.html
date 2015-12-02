@@ -5,52 +5,75 @@
 {% load render_table from django_tables2 %}
 
 <script language="JavaScript">
-var selectedProducts = [];
-function toggle(source) {
-	var value = source.value;
-    checkboxes = document.getElementsByName('selection');
-    var found = false;
-    for(var i = 0; i <= selectedProducts.length; i++){
-        if(selectedProducts[i] == value){
-        	found = true;
-        	selectedProducts.splice(i,1);
-        	break;
-        }
-    }
+	var selectedProducts = [];
+	function toggle(source) {
+		var value = source.value;
+	    checkboxes = document.getElementsByName('selection');
+	    var found = false;
+	    for(var i = 0; i <= selectedProducts.length; i++){
+	        if(selectedProducts[i] == value){
+	        	found = true;
+	        	selectedProducts.splice(i,1);
+	        	break;
+	        }
+	    }
 
-    if(found == false)
-    	selectedProducts.push(value);
+	    if(found == false)
+	    	selectedProducts.push(value);
 
-    console.log(JSON.stringify(selectedProducts));
-    document.getElementById('id_selected_products').value = JSON.stringify(selectedProducts);
-    console.log(document.getElementById('id_selected_products').value);
-}
+	    console.log(JSON.stringify(selectedProducts));
+	    document.getElementById('id_selected_products').value = JSON.stringify(selectedProducts);
+	    console.log(document.getElementById('id_selected_products').value);
+	}
 
-function selectProducts(){
-	document.getElementById('selectProductsForm').submit();
-}
+	function selectProducts(){
+		document.getElementById('selectProductsForm').submit();
+	}
+
+	function calculateTotal(){
+		var total = 0;
+		$('.paleblue input').each(function () {
+	    	total += parseInt(this.value);
+		});
+		
+		document.getElementById('totalAmount').innerHTML = total;
+	}
 </script>
 
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'css/paleblue.css' %}" />
         <link href="{% static 'css/customer.css' %}" rel="stylesheet">
+        <script type="text/javascript" src="{% static 'js/jquery-1.11.3.js' %}"></script>
 
     </head>
     <body class="pageContainer">
+    <div class="userInfoContainer">
+    	<label>Logged in as {{user_name}}</label>
+    </div>
 		<form id="selectProductsForm" method="POST" style="display:none;">{% csrf_token %}
     		{{select_products_form}}
 		</form>
 		<button onclick="selectProducts()">Done</button>
     	<div class="centerContent">
+
 	    	<h1>Customer</h1>
+	    	{% if show_search %}
 	    	<div style="margin-bottom:10px;">
 		    	<form method="POST" style="display:inline;">{% csrf_token %}
 		    		{{product_search_form}}
 		    		<button type="submit">Search</button>
 				</form>
 			</div>
+			{% endif %}
 	        {% render_table table %}
+
+	        {% if tally_products %}
+	        	<form method="POST" style="display:inline;">{% csrf_token %}
+		    		<button type="button" onclick="calculateTotal()">Calculate Total</button>
+				</form>
+				<label>total price = $<label id="totalAmount"></label></label>
+	        {% endif %}
 	    </div>
     </body>
 </html>
