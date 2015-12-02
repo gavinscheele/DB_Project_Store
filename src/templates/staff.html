@@ -5,30 +5,35 @@
 {% load render_table from django_tables2 %}
 
 <script language="JavaScript">
-var selectedProducts = [];
-function toggle(source) {
-	var value = source.value;
-    checkboxes = document.getElementsByName('selection');
-    var found = false;
-    for(var i = 0; i <= selectedProducts.length; i++){
-        if(selectedProducts[i] == value){
-        	found = true;
-        	selectedProducts.splice(i,1);
-        	break;
-        }
+function setTable(type)
+{
+    if (type==="productTable")
+    {
+        console.log("product");
+        document.getElementById('productTableID').style.display = "block";
+        document.getElementById('orderTableID').style.display = "none";
+        document.getElementById('userTableID').style.display = "none";
     }
-
-    if(found == false)
-    	selectedProducts.push(value);
-
-    console.log(JSON.stringify(selectedProducts));
-    document.getElementById('id_selected_products').value = JSON.stringify(selectedProducts);
-    console.log(document.getElementById('id_selected_products').value);
+    else if (type==="orderTable")
+    {
+        console.log("order");
+        document.getElementById('productTableID').style.display = "none";
+        document.getElementById('orderTableID').style.display = "block";
+        document.getElementById('userTableID').style.display = "none";
+    }
+    else if (type==="userTable")
+    {
+        console.log("user");
+        document.getElementById('productTableID').style.display = "none";
+        document.getElementById('orderTableID').style.display = "none";
+        document.getElementById('userTableID').style.display = "block";
+    }
+    else
+    {
+        console.log("error");
+    }
 }
 
-function selectProducts(){
-	document.getElementById('selectProductsForm').submit();
-}
 </script>
 
 <html>
@@ -38,19 +43,21 @@ function selectProducts(){
 
     </head>
     <body class="pageContainer">
-		<form id="selectProductsForm" method="POST" style="display:none;">{% csrf_token %}
+<!-- 		<form id="selectProductsForm" method="POST" style="display:none;">
+            {% csrf_token %}
     		{{select_products_form}}
 		</form>
-		<button onclick="selectProducts()">Done</button>
+		<button onclick="selectProducts()">Done</button> -->
     	<div class="centerContent">
 	    	<h1>Staff</h1>
-	    	<div style="margin-bottom:10px;">
-		    	<form method="POST" style="display:inline;">{% csrf_token %}
-		    		{{product_search_form}}
-		    		<button type="submit">Search</button>
-				</form>
-			</div>
-	        {% render_table table %}
+            <h3>Select a table to manipulate its data.</h3>
+            <button onclick="setTable('productTable')">Product</button>
+            <button onclick="setTable('orderTable')">Order</button>
+            <button onclick="setTable('userTable')">User</button>
+	        <p id="productTableID" style = "display: none"> Products: {% render_table productTable %} </p>
+            <p id="orderTableID" style = "display: none"> Orders: {% render_table orderTable %} </p>
+            <p id="userTableID" style = "display: none"> Users: {% render_table userTable %} </p>
+            
 	    </div>
     </body>
 </html>
