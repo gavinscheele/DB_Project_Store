@@ -17,6 +17,8 @@ class ContainsAdminForm(forms.ModelForm):
 			actualQuantity = models.Product.objects.get(id=formProduct.id).stockQuantity
 			if (actualQuantity - formQuantity < 0):
 				raise forms.ValidationError("You cannot order this many. There are only " + str(actualQuantity) + " of this item in stock.")
+			if not (models.Product.objects.get(id=formProduct.id).active):
+				raise forms.ValidationError("This is not an active item, so you can't add it to an order.")
 
 class UserAdminForm(forms.ModelForm):
 	def clean(self):  #Validation to stop staff from adding a user with an email that is already in the system.
