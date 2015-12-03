@@ -24,6 +24,12 @@ def customer(request):
 	show_proceed_to_payment_button = False
 	tally_products = False
 
+	#set whether or not the "return to staff page" button is displayed
+	if current_user.is_staff: 
+		staff_display = "display: block"
+	else: 
+		staff_display = "display: none"
+
 
 	# change table to show products that match search query, or all if blank
 	if product_name:
@@ -104,7 +110,8 @@ def customer(request):
 		'show_search'					: show_search,
 		'tally_products'				: tally_products,
 		'update_order_form'				: forms.UpdateOrderForm,
-		'selected_products'				: show_proceed_to_payment_button
+		'selected_products'				: show_proceed_to_payment_button,
+		'staff_display'					: staff_display
 
 	}
 	return render(request, "customer.html", context)

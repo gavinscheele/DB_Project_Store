@@ -48,6 +48,11 @@
 	        {% if selected_products %}
 	        <div style="margin-top:10px">
 	        	<button onclick="selectProducts()">Proceed to payment</button>
+	        	<br>
+	        	<br>
+	        	<form action="{% url 'store_user' %}" style="{{staff_display}}">
+					<input type="submit" value="Return to all tables view in Staff page WITHOUT SAVING">
+				</form>
 	        </div>
 	        {% endif %}
 	        {% if tally_products %}
