@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', welcome_view.welcome, name="welcome"),
     url(r'^store_user/', store_user_view.store_user, name="store_user"),
-    url(r'^customer/', customer_view.customer, name="customer"),
     url(r'^store_user_signup/', store_user_view.store_user_signup, name="store_user_signup"),
+    url(r'^customer/', customer_view.customer, name="customer"),
+    url(r'^customer_edit_user/', customer_view.customer_edit_user, name="customer_edit_user")
 ]

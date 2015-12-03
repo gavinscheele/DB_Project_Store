@@ -104,3 +104,28 @@ def customer(request):
 
 	}
 	return render(request, "customer.html", context)
+
+def customer_edit_user(request):
+	#TO RECEIVE: request.session.get('cat')
+	#TO GENERATE: request.session['cat'] = True;
+	form = EditUserForm(request.POST or None)
+	extra = ""
+	print(request)
+	if form.is_valid():
+		inEmail = form.cleaned_data['email']
+		inPassword = form.cleaned_data['password']
+		
+		if User.objects.filter(email=inEmail, password=inPassword): #If this set is not empty, then this user exists.
+			thisUser = User.objects.get(email=inEmail, password=inPassword)
+			request.session['UserID'] = thisUser.id
+			if thisUser.is_staff: #If the user is staff, take them to the staff page.
+				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",))) #Redirect to "welcome" app in admin page.
+			else: #Otherwise, the user is just a customer and is directed to the regular customer view.
+				return HttpResponseRedirect(reverse('customer'))
+		else: #user does not exist.
+			extra = "No user found with these credentials."
+	context = {
+		"form": form,
+		"extra": extra
+	}
+	return render(request, "customer_edit_user.html", context)
