@@ -19,6 +19,12 @@
 {% endif %}
     <div class="userInfoContainer">
     	<label>Logged in as {{user_name}}</label>
+    	<form action="{% url 'customer_edit_user' %}">
+			<input type="submit" value="Edit Account Information">
+		</form>
+		<form action="{% url 'store_user' %}">
+			<input type="submit" value="Log Out">
+		</form>
     </div>
     <label id="order_id" style="display:none">{{order_id}}</label>
 		<form id="selectProductsForm" method="POST" style="display:none;">{% csrf_token %}

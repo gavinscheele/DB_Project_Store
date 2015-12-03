@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django_tables2   import RequestConfig
 from welcome import models
 from . import tables
+from .forms import EditUserForm
 from welcome import forms
 import json
 from django.http import HttpResponseRedirect
@@ -104,3 +105,26 @@ def customer(request):
 
 	}
 	return render(request, "customer.html", context)
+
+def customer_edit_user(request):
+	UserID = request.session.get('UserID')
+	current_user = models.User.objects.get(id=UserID)
+
+	form = EditUserForm(request.POST or None, instance=current_user)
+	extra = ""
+	if form.is_valid():
+		#check to see whether that user already exists.
+		if models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID): #If this set is not empty, than this user already exists.
+			print("entered. id: ")
+			print (UserID)
+			print ("excluded: ")
+			print (models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID))
+			extra ="A user already exists with this email. New account not created."
+		else:
+			form.save()
+			return HttpResponseRedirect(reverse('customer'))
+	context = {
+		"form": form,
+		"extra": extra
+	}
+	return render(request, "customer_edit_user.html", context)

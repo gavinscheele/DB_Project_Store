@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<link href="{% static 'css/customer_edit_user.css' %}" rel="stylesheet">
+<!-- <script type="text/javascript" src="{% static 'js/store_user_signup.js' %}"></script> -->
+ 
+<h1>Edit Account Information</h1>
+<p>Edit whatever information you would like to change and enter your password, and then click "Save Changes." <br> <span style="font-size: 13px">Make sure you enter your password correctly, as entering new data will change it to something new.</span></p>
+<form method='POST' action=''> 
+	{% csrf_token %}
+	{{ form.as_p }}
+<input type='submit' value='Save Changes'/>
+</form>
+
+<p>{{extra}}</p>
+
+<form action="{% url 'customer' %}">
+	<input type="submit" value="Go back without saving">
+</form>
