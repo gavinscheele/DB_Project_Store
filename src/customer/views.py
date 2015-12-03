@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django_tables2   import RequestConfig
 from welcome import models
 from . import tables
+from .forms import EditUserForm
 from welcome import forms
 import json
 from django.http import HttpResponseRedirect
@@ -106,24 +107,22 @@ def customer(request):
 	return render(request, "customer.html", context)
 
 def customer_edit_user(request):
-	#TO RECEIVE: request.session.get('cat')
-	#TO GENERATE: request.session['cat'] = True;
-	form = EditUserForm(request.POST or None)
+	UserID = request.session.get('UserID')
+	current_user = models.User.objects.get(id=UserID)
+
+	form = EditUserForm(request.POST or None, instance=current_user)
 	extra = ""
-	print(request)
 	if form.is_valid():
-		inEmail = form.cleaned_data['email']
-		inPassword = form.cleaned_data['password']
-		
-		if User.objects.filter(email=inEmail, password=inPassword): #If this set is not empty, then this user exists.
-			thisUser = User.objects.get(email=inEmail, password=inPassword)
-			request.session['UserID'] = thisUser.id
-			if thisUser.is_staff: #If the user is staff, take them to the staff page.
-				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",))) #Redirect to "welcome" app in admin page.
-			else: #Otherwise, the user is just a customer and is directed to the regular customer view.
-				return HttpResponseRedirect(reverse('customer'))
-		else: #user does not exist.
-			extra = "No user found with these credentials."
+		#check to see whether that user already exists.
+		if models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID): #If this set is not empty, than this user already exists.
+			print("entered. id: ")
+			print (UserID)
+			print ("excluded: ")
+			print (models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID))
+			extra ="A user already exists with this email. New account not created."
+		else:
+			form.save()
+			return HttpResponseRedirect(reverse('customer'))
 	context = {
 		"form": form,
 		"extra": extra
