@@ -7,8 +7,7 @@ from welcome.models import User
 
 # Create your views here.
 def store_user(request):
-	#TO RECEIVE: request.session.get('cat')
-	#TO GENERATE: request.session['cat'] = True;
+	request.session['UserID'] = "guest" #Initially, ID is guest. reset this every time they arrive to this page.
 	form = UserSignInForm(request.POST or None)
 	extra = ""
 	print(request)
