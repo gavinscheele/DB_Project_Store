@@ -7,4 +7,7 @@ class ProductSearchForm(forms.Form):
 class ProductSelectForm(forms.Form):
 	selected_products = forms.CharField(max_length=50)
 
+class UpdateOrderForm(forms.Form):
+	update_info = forms.CharField(max_length=5000)
+
 	
