@@ -1,60 +1,32 @@
 {% load staticfiles %}
 
-<!-- <script type="text/javascript" src="{% static 'js/SOMEFILENAME.js' %}"></script>
- -->
+
 {% load render_table from django_tables2 %}
 
-<script language="JavaScript">
-	var selectedProducts = [];
-	function toggle(source) {
-		var value = source.value;
-	    checkboxes = document.getElementsByName('selection');
-	    var found = false;
-	    for(var i = 0; i <= selectedProducts.length; i++){
-	        if(selectedProducts[i] == value){
-	        	found = true;
-	        	selectedProducts.splice(i,1);
-	        	break;
-	        }
-	    }
-
-	    if(found == false)
-	    	selectedProducts.push(value);
-
-	    console.log(JSON.stringify(selectedProducts));
-	    document.getElementById('id_selected_products').value = JSON.stringify(selectedProducts);
-	    console.log(document.getElementById('id_selected_products').value);
-	}
-
-	function selectProducts(){
-		document.getElementById('selectProductsForm').submit();
-	}
-
-	function calculateTotal(){
-		var total = 0;
-		$('.paleblue input').each(function () {
-	    	total += parseInt(this.value);
-		});
-		
-		document.getElementById('totalAmount').innerHTML = total;
-	}
-</script>
 
 <html>
     <head>
         <link rel="stylesheet" href="{% static 'css/paleblue.css' %}" />
         <link href="{% static 'css/customer.css' %}" rel="stylesheet">
-        <script type="text/javascript" src="{% static 'js/jquery-1.11.3.js' %}"></script>
-
     </head>
     <body class="pageContainer">
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
     <div class="userInfoContainer">
     	<label>Logged in as {{user_name}}</label>
     </div>
+    <label id="order_id" style="display:none">{{order_id}}</label>
 		<form id="selectProductsForm" method="POST" style="display:none;">{% csrf_token %}
     		{{select_products_form}}
 		</form>
-		<button onclick="selectProducts()">Done</button>
+		<form id="updateOrderForm" method="POST" style="display:none;">{% csrf_token %}
+    		{{update_order_form}}
+		</form>
     	<div class="centerContent">
 
 	    	<h1>Customer</h1>
@@ -67,13 +39,25 @@
 			</div>
 			{% endif %}
 	        {% render_table table %}
-
+	        {% if selected_products %}
+	        <div style="margin-top:10px">
+	        	<button onclick="selectProducts()">Proceed to payment</button>
+	        </div>
+	        {% endif %}
 	        {% if tally_products %}
-	        	<form method="POST" style="display:inline;">{% csrf_token %}
-		    		<button type="button" onclick="calculateTotal()">Calculate Total</button>
-				</form>
-				<label>total price = $<label id="totalAmount"></label></label>
+	        	<div>
+	        		<label>total items: <label id="totalItems"></label></label>
+	        	</div>
+	        	<div>
+	        		<label>total price: $<label id="totalPrice"></label></label>
+	        	</div>
+	        	<div>
+		    		<button type="button" onclick="updateContains()">Pay</button>
+		    	</div>
 	        {% endif %}
 	    </div>
     </body>
 </html>
+
+<script type="text/javascript" src="{% static 'js/jquery-1.11.3.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/customer.js' %}"></script>
