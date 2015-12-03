@@ -96,6 +96,12 @@ def customer(request):
 		if saved:
 			messages.add_message(request, messages.INFO, 'Order Saved.')
 		if current_user.is_staff:
+			lowProducts = models.Product.objects.filter(stockQuantity=0);
+			if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+				lowStr = 'You are low on the following products'
+				for product in lowProducts:
+					lowStr = lowStr + ", " + str(product.name)
+				messages.add_message(request, messages.WARNING, lowStr)
 			return HttpResponseRedirect(staff_URL)
 		else:
 			return HttpResponseRedirect(reverse('customer'))
@@ -122,6 +128,12 @@ def customer_edit_user(request):
 	UserID = request.session.get('UserID')
 	current_user = models.User.objects.get(id=UserID)
 	if current_user.is_staff:
+		lowProducts = models.Product.objects.filter(stockQuantity=0);
+		if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+			lowStr = 'You are low on the following products'
+			for product in lowProducts:
+				lowStr = lowStr + ", " + str(product.name)
+			messages.add_message(request, messages.WARNING, lowStr)
 		return_URL = reverse('admin:app_list', args=("welcome",))
 	else:
 		return_URL = reverse('customer')
@@ -129,14 +141,14 @@ def customer_edit_user(request):
 	form = EditUserForm(request.POST or None, instance=current_user)
 	extra = ""
 	if form.is_valid():
-		print ("FORM IS VALID")
 		#check to see whether that user already exists.
 		if models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID): #If this set is not empty, than this user already exists.
 			extra ="A user already exists with this email. Changes not saved."
 		else:
-			print ("IN ELSE")
 			form.save()
 			if form.cleaned_data['is_staff']:
+				#CHEATY ALERT PLACEMENT
+				messages.add_message(request, messages.WARNING, lowStr)
 				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
 			else:
 				return HttpResponseRedirect(reverse('customer'))

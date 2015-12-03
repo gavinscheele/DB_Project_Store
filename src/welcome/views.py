@@ -20,3 +20,13 @@ def welcome(request):
 
 	}
 	return render(request, "welcome.html", context)
+
+#TRYING THIS CODE OUT WITH THIS PLACEMENT. MIGHT NOT BE RIGHT.
+# def app_index(request):
+# 	messages.add_message(request, messages.INFO, lowStr)
+# 	lowProducts = Product.objects.filter(stockQuantity=0);
+# 	if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+# 		lowStr = 'You are low on the following products!\n'
+# 		for product in lowProducts:
+# 			lowStr = lowStr + str(product.name) + "\n"
+# 		messages.add_message(request, messages.WARNING, lowStr)
