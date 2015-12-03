@@ -13,6 +13,8 @@ def customer(request):
 
 	#get logged in user
 	UserID = request.session.get('UserID')
+	if str(UserID) == "guest": #If they're not logged in, redirect to Welcome (guest) page
+		return HttpResponseRedirect(reverse('welcome'))
 	current_user = models.User.objects.get(id=UserID)
 
 	#set variable for data passed by form
@@ -120,6 +122,8 @@ def customer(request):
 
 def customer_edit_user(request):
 	UserID = request.session.get('UserID')
+	if str(UserID) == "guest": #If they're not logged in, redirect to Welcome (guest) page
+		return HttpResponseRedirect(reverse('welcome'))
 	current_user = models.User.objects.get(id=UserID)
 	delete_user = request.GET.get("delete_user")
 
