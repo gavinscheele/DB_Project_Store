@@ -1,5 +1,5 @@
 from django.contrib import admin
-from forms import ContainsAdminForm, UserAdminForm
+from .forms import ContainsAdminForm, UserAdminForm
 
 # Register your models here.
 from .models import User, customerOrder, Supplier, Product, Contain
