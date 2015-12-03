@@ -21,6 +21,7 @@ class ContainsAdminForm(forms.ModelForm):
 			if (actualQuantity - formQuantity < 0):
 				raise forms.ValidationError("You cannot order this many. There are only " + str(actualQuantity) + " of this item in stock.")
 			if not (models.Product.objects.get(id=formProduct.id).active):
+				print("if not")
 				raise forms.ValidationError("This is not an active item, so you can't add it to an order.")
 
 class UserAdminForm(forms.ModelForm):
