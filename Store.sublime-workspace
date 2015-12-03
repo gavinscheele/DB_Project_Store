@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"show",
+				"show_search"
+			],
+			[
+				"prodc",
+				"product_search_form"
+			],
+			[
+				"prod",
+				"products_selected"
+			],
+			[
+				"User",
+				"UserID"
+			],
+			[
+				"selec",
+				"selectedProducts"
+			],
+			[
+				"store",
+				"store_user_view"
+			],
+			[
+				"django",
+				"django_tables2"
+			],
+			[
 				"Sign",
 				"SignUpAdmin"
 			],
@@ -27,6 +55,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/customer/tables.py",
+			"settings":
+			{
+				"buffer_size": 1386,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/welcome/models.py",
+			"settings":
+			{
+				"buffer_size": 1484,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/customer/views.py",
+			"settings":
+			{
+				"buffer_size": 1822,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Store/wsgi.py",
+			"settings":
+			{
+				"buffer_size": 387,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/templates/customer.html",
+			"settings":
+			{
+				"buffer_size": 2367,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/static_in_pro/our_static/css/customer.css",
+			"settings":
+			{
+				"buffer_size": 178,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/welcome/forms.py",
+			"settings":
+			{
+				"buffer_size": 206,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -58,8 +142,30 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/Gavin/Desktop/Databases/Store/src",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/customer",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/js",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome"
+	],
 	"file_history":
 	[
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/views.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/customer/tables.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/welcome.html",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store/settings.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store/urls.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/forms.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/tables.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/models.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/css/welcome.css",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/css/paleblue.css",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/apps.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/store_user/views.py",
 		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/css/navbar-static-top.css",
 		"/C/Users/Gavin/Desktop/Django Tutorials",
 		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/img/example.txt",
@@ -108,13 +214,14 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\Users\\Gavin\\Desktop\\Databases\\Store\\src\\static_in_pro\\our_static\\"
 		]
 	},
 	"find_state":
@@ -146,8 +253,206 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/customer/tables.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1135,
+								1135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/welcome/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/customer/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1459,
+								1459
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/Store/wsgi.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/templates/customer.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2275,
+								2280
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1134.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/static_in_pro/our_static/css/customer.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 178,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								112,
+								112
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/welcome/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 206,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								170,
+								170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -228,7 +533,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 224.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

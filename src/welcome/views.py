@@ -8,9 +8,9 @@ def welcome(request):
 	#request.session['cat'] = True;
 	product_name = request.POST.get('Search_Products')
 	if product_name:
-		table = tables.ProductTable(models.Product.objects.filter(name__contains=product_name))
+		table = tables.ProductTable(models.Product.objects.filter(name__contains=product_name, active=True))
 	else:
-		table = tables.ProductTable(models.Product.objects.all())
+		table = tables.ProductTable(models.Product.objects.filter(active=True))
 
 	print(request)
 	RequestConfig(request).configure(table)
