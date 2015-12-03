@@ -119,7 +119,10 @@ def customer_edit_user(request):
 			extra ="A user already exists with this email. Changes not saved."
 		else:
 			form.save()
-			return HttpResponseRedirect(reverse('customer'))
+			if form.cleaned_data['is_staff']:
+				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
+			else:
+				return HttpResponseRedirect(reverse('customer'))
 	context = {
 		"form": form,
 		"extra": extra
