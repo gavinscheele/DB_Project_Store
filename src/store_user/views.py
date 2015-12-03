@@ -20,7 +20,7 @@ def store_user(request):
 			thisUser = User.objects.get(email=inEmail, password=inPassword)
 			request.session['UserID'] = thisUser.id
 			if thisUser.is_staff: #If the user is staff, take them to the staff page.
-				return HttpResponseRedirect(reverse('staff')) #*****PAGE THAT COMES NEXT**********
+				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",))) #Redirect to "welcome" app in admin page.
 			else: #Otherwise, the user is just a customer and is directed to the regular customer view.
 				return HttpResponseRedirect(reverse('customer'))
 		else: #user does not exist.
