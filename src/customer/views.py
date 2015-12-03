@@ -88,7 +88,10 @@ def customer(request):
 
 		if saved:
 			messages.add_message(request, messages.INFO, 'Order Saved.')
-		return HttpResponseRedirect(reverse('customer'))
+		if current_user.is_staff:
+			return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
+		else:
+			return HttpResponseRedirect(reverse('customer'))
 			
 	# if update_order_quantity:
 	show_search = False
