@@ -76,7 +76,7 @@ def customer(request):
 				prod_obj.stockQuantity = prod_obj.stockQuantity - int(quant)
 				if prod_obj.stockQuantity < 0:
 					order_obj.delete()
-					messages.add_message(request, messages.INFO, 'You ordered more than the stock quantity. Returning to customer page.')
+					messages.add_message(request, messages.INFO, 'You ordered more than the stock quantity. Returning to order page.')
 					return HttpResponseRedirect(reverse('customer'))
 
 				if int(quant) == 0:
@@ -121,15 +121,20 @@ def customer(request):
 def customer_edit_user(request):
 	UserID = request.session.get('UserID')
 	current_user = models.User.objects.get(id=UserID)
+	if current_user.is_staff:
+		return_URL = reverse('admin:app_list', args=("welcome",))
+	else:
+		return_URL = reverse('customer')
 
 	form = EditUserForm(request.POST or None, instance=current_user)
 	extra = ""
 	if form.is_valid():
+		print ("FORM IS VALID")
 		#check to see whether that user already exists.
 		if models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID): #If this set is not empty, than this user already exists.
-			print (models.User.objects.filter(email=form.cleaned_data['email']).exclude(id=UserID))
 			extra ="A user already exists with this email. Changes not saved."
 		else:
+			print ("IN ELSE")
 			form.save()
 			if form.cleaned_data['is_staff']:
 				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
@@ -137,6 +142,7 @@ def customer_edit_user(request):
 				return HttpResponseRedirect(reverse('customer'))
 	context = {
 		"form": form,
-		"extra": extra
+		"extra": extra,
+		"return_URL": return_URL
 	}
 	return render(request, "customer_edit_user.html", context)
