@@ -13,4 +13,3 @@ class EditUserForm(forms.ModelForm):
 		# domain, extension = provider.split('.')
 		
 		# return email
-
