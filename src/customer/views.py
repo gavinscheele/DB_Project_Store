@@ -29,6 +29,7 @@ def customer(request):
 		staff_display = "display: block"
 	else: 
 		staff_display = "display: none"
+	staff_URL = reverse('admin:app_list', args=("welcome",))
 
 
 	# change table to show products that match search query, or all if blank
@@ -95,7 +96,7 @@ def customer(request):
 		if saved:
 			messages.add_message(request, messages.INFO, 'Order Saved.')
 		if current_user.is_staff:
-			return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
+			return HttpResponseRedirect(staff_URL)
 		else:
 			return HttpResponseRedirect(reverse('customer'))
 			
@@ -111,7 +112,8 @@ def customer(request):
 		'tally_products'				: tally_products,
 		'update_order_form'				: forms.UpdateOrderForm,
 		'selected_products'				: show_proceed_to_payment_button,
-		'staff_display'					: staff_display
+		'staff_display'					: staff_display,
+		'staff_URL'						: staff_URL
 
 	}
 	return render(request, "customer.html", context)
