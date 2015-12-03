@@ -40,8 +40,7 @@ INSTALLED_APPS = (
     'welcome',
     'store_user',
     'django_tables2',
-    'customer',
-    'staff'
+    'customer'
 )
 
 MIDDLEWARE_CLASSES = (
