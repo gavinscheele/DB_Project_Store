@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!-- <script type="text/javascript" src="{% static 'js/SOMEFILENAME.js' %}"></script>
+ -->
+{% load render_table from django_tables2 %}
+
+<script language="JavaScript">
+function setTable(type)
+{
+    if (type==="productTable")
+    {
+        console.log("product");
+        document.getElementById('productTableID').style.display = "block";
+        document.getElementById('orderTableID').style.display = "none";
+        document.getElementById('userTableID').style.display = "none";
+    }
+    else if (type==="orderTable")
+    {
+        console.log("order");
+        document.getElementById('productTableID').style.display = "none";
+        document.getElementById('orderTableID').style.display = "block";
+        document.getElementById('userTableID').style.display = "none";
+    }
+    else if (type==="userTable")
+    {
+        console.log("user");
+        document.getElementById('productTableID').style.display = "none";
+        document.getElementById('orderTableID').style.display = "none";
+        document.getElementById('userTableID').style.display = "block";
+    }
+    else
+    {
+        console.log("error");
+    }
+}
+
+</script>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/paleblue.css' %}" />
+        <link href="{% static 'css/customer.css' %}" rel="stylesheet">
+
+    </head>
+    <body class="pageContainer">
+<!-- 		<form id="selectProductsForm" method="POST" style="display:none;">
+            {% csrf_token %}
+    		{{select_products_form}}
+		</form>
+		<button onclick="selectProducts()">Done</button> -->
+    	<div class="centerContent">
+	    	<h1>Staff</h1>
+            <h3>Select a table to manipulate its data.</h3>
+            <button onclick="setTable('productTable')">Product</button>
+            <button onclick="setTable('orderTable')">Order</button>
+            <button onclick="setTable('userTable')">User</button>
+	        <p id="productTableID" style = "display: none"> Products: {% render_table productTable %} </p>
+            <p id="orderTableID" style = "display: none"> Orders: {% render_table orderTable %} </p>
+            <p id="userTableID" style = "display: none"> Users: {% render_table userTable %} </p>
+            
+	    </div>
+    </body>
+</html>
