@@ -37,8 +37,6 @@ class Product(models.Model):
 	name = models.CharField(max_length=100)
 	supplier = models.ForeignKey(Supplier)
 
-	discount = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
-
 	# @property 
 	# def product_id(self):
 	# 	return self.id
