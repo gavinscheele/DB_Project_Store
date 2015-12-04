@@ -32,6 +32,9 @@
 		    		{{product_search_form}}
 		    		<button type="submit">Search</button>
 				</form>
+                <form method="POST" style="display:inline;">{% csrf_token %}
+                    <button type="submit" name="show_all" value="true">Show All</button>
+                </form>
 			</div>
 	        {% render_table table %}
 	    </div>
