@@ -1,7 +1,6 @@
 from django import forms
 from . import models
-from django.contrib import messages
-
+from django.contrib import messages, admin
 
 class ProductSearchForm(forms.Form):
 	Search_Products = forms.CharField(max_length=50)
@@ -35,5 +34,6 @@ class UserAdminForm(forms.ModelForm):
 
 class DeleteUserForm(forms.Form):
 	delete_user = forms.CharField(max_length=5)
+
 
 
