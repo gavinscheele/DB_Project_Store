@@ -11,6 +11,10 @@
 <input type='submit' value='Save Changes'/>
 </form>
 
+<form method="GET" action=''>
+	<span style="display:none">{{delete_user_form}}</span>
+	<input name="delete_user" style="color:white;background-color:red" type="submit" value="Delete Account" />
+</form>
 <p>{{extra}}</p>
 
 <form action="{{return_URL}}">

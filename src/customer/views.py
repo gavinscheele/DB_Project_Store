@@ -101,7 +101,7 @@ def customer(request):
 			return HttpResponseRedirect(staff_URL)
 		else:
 			return HttpResponseRedirect(reverse('customer'))
-			
+		
 	# if update_order_quantity:
 	show_search = False
 	RequestConfig(request).configure(table)
@@ -115,7 +115,7 @@ def customer(request):
 		'update_order_form'				: forms.UpdateOrderForm,
 		'selected_products'				: show_proceed_to_payment_button,
 		'staff_display'					: staff_display,
-		'staff_URL'						: staff_URL
+		'staff_URL'						: staff_URL,
 
 	}
 	return render(request, "customer.html", context)
@@ -125,6 +125,8 @@ def customer_edit_user(request):
 	if str(UserID) == "guest": #If they're not logged in, redirect to Welcome (guest) page
 		return HttpResponseRedirect(reverse('welcome'))
 	current_user = models.User.objects.get(id=UserID)
+	delete_user = request.GET.get("delete_user")
+
 	if current_user.is_staff:
 		return_URL = reverse('admin:app_list', args=("welcome",))
 	else:
@@ -144,9 +146,16 @@ def customer_edit_user(request):
 				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
 			else:
 				return HttpResponseRedirect(reverse('customer'))
+
+	if delete_user:
+		current_user.delete()
+		messages.add_message(request, messages.INFO, 'Account has been deleted.')
+		return HttpResponseRedirect(reverse('welcome'))
+
 	context = {
 		"form": form,
 		"extra": extra,
-		"return_URL": return_URL
+		"return_URL": return_URL,
+		'delete_user_form': forms.DeleteUserForm
 	}
 	return render(request, "customer_edit_user.html", context)
