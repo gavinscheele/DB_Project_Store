@@ -8,7 +8,6 @@
     <head>
         <link rel="stylesheet" href="{% static 'css/paleblue.css' %}" />
         <link href="{% static 'css/welcome.css' %}" rel="stylesheet">
-
     </head>
     <body class="pageContainer">
     <ul class="messages">
@@ -17,13 +16,14 @@
         {% endfor %}
     </ul>
     	<div class="loginRegister">
-    		<form action="{% url 'store_user' %}">
-    			<input type="submit" value="Login">
-    		</form>
-            <form action="{% url 'store_user_signup' %}">
-                <input type="submit" value="Register">
-            </form>
-
+            <div class="well well-lg">
+        		<form action="{% url 'store_user' %}" style="display:inline">
+        			<input type="submit" value="Login">
+        		</form>
+                <form action="{% url 'store_user_signup' %}" style="display:inline">
+                    <input type="submit" value="Register">
+                </form>
+            </div>
     	</div>
     	<div class="centerContent">
 	    	<h1>Welcome, Guest.</h1>

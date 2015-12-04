@@ -1,22 +1,32 @@
 {% load staticfiles %}
+<html>
+<head>
+	<link href="{% static 'css/customer_edit_user.css' %}" rel="stylesheet">
+	<!-- <script type="text/javascript" src="{% static 'js/store_user_signup.js' %}"></script> -->
+	 
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ </head>
 
-<link href="{% static 'css/customer_edit_user.css' %}" rel="stylesheet">
-<!-- <script type="text/javascript" src="{% static 'js/store_user_signup.js' %}"></script> -->
- 
-<h1>Edit Account Information</h1>
-<p>Edit whatever information you would like to change and enter your password, and then click "Save Changes." <br> <span style="font-size: 13px">Make sure you enter your password correctly, as entering new data will change it to something new.</span></p>
-<form method='POST' action=''> 
-	{% csrf_token %}
-	{{ form.as_p }}
-<input type='submit' value='Save Changes'/>
-</form>
+<div class="col-lg-4"></div>
+<div class="well well-lg col-lg-4" style="margin-top:20px;">
+	<h1 style="margin-top:0">Edit Account Information</h1>
+	<p>Edit whatever information you would like to change and enter your password, and then click "Save Changes." <br> <span style="font-size: 13px">Make sure you enter your password correctly, as entering new data will change it to something new.</span></p>
+	<form method='POST' action=''> 
+		{% csrf_token %}
+		{{ form.as_p }}
+	<input type='submit' value='Save Changes'/>
+	</form>
 
-<form method="GET" action=''>
-	<span style="display:none">{{delete_user_form}}</span>
-	<input name="delete_user" style="color:white;background-color:red" type="submit" value="Delete Account" />
-</form>
-<p>{{extra}}</p>
+	<form method="GET" action=''>
+		<span style="display:none">{{delete_user_form}}</span>
+		<input name="delete_user" style="color:white;background-color:red" type="submit" value="Delete Account" />
+	</form>
+	<p>{{extra}}</p>
 
-<form action="{{return_URL}}">
-	<input type="submit" value="Go back without saving">
-</form>
+	<form action="{{return_URL}}">
+		<input type="submit" value="Go back without saving">
+	</form>
+</div>
+ <div class="col-lg-4"></div>
+
+ </html>
