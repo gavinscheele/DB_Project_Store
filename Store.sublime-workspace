@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"delete",
+				"delete_user"
+			],
+			[
+				"qu",
+				"quant"
+			],
+			[
+				"prod",
+				"prod_obj"
+			],
+			[
+				"pr",
+				"pr_id"
+			],
+			[
+				"order",
+				"order_obj"
+			],
+			[
+				"ord",
+				"ord_id"
+			],
+			[
+				"show",
+				"show_procees_to_payment_button"
+			],
+			[
+				"protu",
+				"products_were_selected"
+			],
+			[
+				"qun",
+				"quantities"
+			],
+			[
+				"calcu",
+				"calculateTotal"
+			],
+			[
+				"contain",
+				"contain_obj"
+			],
+			[
+				"produc",
+				"product_updates"
+			],
+			[
+				"produ",
+				"product_updates"
+			],
+			[
+				"product",
+				"productIds"
+			],
+			[
+				"new_",
+				"new_order_quantity"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"update",
+				"update_order_quantity"
+			],
+			[
+				"prodc",
+				"product_search_form"
+			],
+			[
+				"User",
+				"UserID"
+			],
+			[
+				"selec",
+				"selectedProducts"
+			],
+			[
+				"store",
+				"store_user_view"
+			],
+			[
+				"django",
+				"django_tables2"
+			],
+			[
 				"Sign",
 				"SignUpAdmin"
 			],
@@ -27,6 +115,80 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/customer/tables.py",
+			"settings":
+			{
+				"buffer_size": 1634,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/welcome/admin.py",
+			"settings":
+			{
+				"buffer_size": 1175,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/customer/views.py",
+			"settings":
+			{
+				"buffer_size": 6512,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/welcome/forms.py",
+			"settings":
+			{
+				"buffer_size": 1647,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/welcome/views.py",
+			"settings":
+			{
+				"buffer_size": 698,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/customer_edit_user.html",
+			"settings":
+			{
+				"buffer_size": 915,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/welcome.html",
+			"settings":
+			{
+				"buffer_size": 1185,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/admin/welcome/customerOrder/change_list.html",
+			"settings":
+			{
+				"buffer_size": 3479,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 67 files for \"You are low\"\n\nC:\\Users\\Gavin\\Desktop\\Databases\\Store\\src\\customer\\views.py:\n  101  			lowProducts = models.Product.objects.filter(stockQuantity__lt=11);\n  102  			if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.\n  103: 				lowStr = 'You are low on the following products'\n  104  				for product in lowProducts:\n  105  					lowStr = lowStr + \", \" + str(product.name)\n  ...\n  152  				lowProducts = models.Product.objects.filter(stockQuantity__lt=11);\n  153  				if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.\n  154: 					lowStr = 'You are low on the following products'\n  155  					for product in lowProducts:\n  156  						lowStr = lowStr + \", \" + str(product.name)\n\nC:\\Users\\Gavin\\Desktop\\Databases\\Store\\src\\store_user\\views.py:\n   24  				lowProducts = Product.objects.filter(stockQuantity__lt=11);\n   25  				if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.\n   26: 					lowStr = 'You are low on the following products'\n   27  					for product in lowProducts:\n   28  						lowStr = lowStr + \", \" + str(product.name)\n\n3 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 1241,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -58,8 +220,37 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/Gavin/Desktop/Databases/Store/src",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/customer",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/admin",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/admin/welcome",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/admin/welcome/customerOrder",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome"
+	],
 	"file_history":
 	[
+		"/C/Users/Gavin/Desktop/Databases/Store/src/customer/forms.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/.gitignore",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/forms.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/css/customer.css",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/js/customer.js",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/customer.html",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/models.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/views.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/customer/tables.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/templates/welcome.html",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store/settings.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/Store/urls.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/tables.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/css/welcome.css",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/static_in_pro/our_static/css/paleblue.css",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/welcome/apps.py",
+		"/C/Users/Gavin/Desktop/Databases/Store/src/store_user/views.py",
 		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/css/navbar-static-top.css",
 		"/C/Users/Gavin/Desktop/Django Tutorials",
 		"/C/Users/Gavin/trydjango18/src/static_in_pro/our_static/img/example.txt",
@@ -108,13 +299,15 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\Users\\Gavin\\Desktop\\Databases\\Store\\src\\",
+			"C:\\Users\\Gavin\\Desktop\\Databases\\Store\\src\\static_in_pro\\our_static\\"
 		]
 	},
 	"find_state":
@@ -122,6 +315,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"You are low",
 			"infobo",
 			"infobox",
 			"background",
@@ -146,8 +340,293 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/customer/tables.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1634,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/welcome/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								39
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/customer/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6512,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5252,
+								5252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2376.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/welcome/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1562,
+								1562
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/welcome/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								475,
+								475
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/templates/customer_edit_user.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 915,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								714,
+								714
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/templates/welcome.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								834,
+								834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/templates/admin/welcome/customerOrder/change_list.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3479,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3443,
+								3443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1350.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1241,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										314,
+										325
+									],
+									[
+										670,
+										681
+									],
+									[
+										1080,
+										1091
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -228,7 +707,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 224.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
