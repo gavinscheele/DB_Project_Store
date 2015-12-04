@@ -98,6 +98,12 @@ def customer(request):
 		if saved:
 			messages.add_message(request, messages.INFO, 'Order Saved.')
 		if current_user.is_staff:
+			lowProducts = models.Product.objects.filter(stockQuantity__lt=11);
+			if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+				lowStr = 'You are low on the following products'
+				for product in lowProducts:
+					lowStr = lowStr + ", " + str(product.name)
+				messages.add_message(request, messages.WARNING, lowStr)
 			return HttpResponseRedirect(staff_URL)
 		else:
 			return HttpResponseRedirect(reverse('customer'))
@@ -141,6 +147,12 @@ def customer_edit_user(request):
 			print ("IN ELSE")
 			form.save()
 			if form.cleaned_data['is_staff']:
+				lowProducts = models.Product.objects.filter(stockQuantity__lt=11);
+				if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+					lowStr = 'You are low on the following products'
+					for product in lowProducts:
+						lowStr = lowStr + ", " + str(product.name)
+					messages.add_message(request, messages.WARNING, lowStr)
 				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",)))
 			else:
 				return HttpResponseRedirect(reverse('customer'))

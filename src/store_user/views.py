@@ -21,7 +21,7 @@ def store_user(request):
 			request.session['UserID'] = thisUser.id
 			if thisUser.is_staff: #If the user is staff, take them to the staff page.
 				#TO DISPLAY A PRODUCT-LOW ALERT but kind of in a cheaty place:
-				lowProducts = Product.objects.filter(stockQuantity=0);
+				lowProducts = Product.objects.filter(stockQuantity__lt=11);
 				if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
 					lowStr = 'You are low on the following products'
 					for product in lowProducts:
