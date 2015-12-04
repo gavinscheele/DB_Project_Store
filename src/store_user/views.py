@@ -3,7 +3,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .forms import UserSignUpForm
 from .forms import UserSignInForm
-from welcome.models import User
+from welcome.models import User, Product
+from django.contrib import messages
 
 # Create your views here.
 def store_user(request):
@@ -19,6 +20,13 @@ def store_user(request):
 			thisUser = User.objects.get(email=inEmail, password=inPassword)
 			request.session['UserID'] = thisUser.id
 			if thisUser.is_staff: #If the user is staff, take them to the staff page.
+				#TO DISPLAY A PRODUCT-LOW ALERT but kind of in a cheaty place:
+				lowProducts = Product.objects.filter(stockQuantity__lt=11);
+				if lowProducts: #If this set is not empty, then we are low on that product and they need to get an alert.
+					lowStr = 'You are low on the following products'
+					for product in lowProducts:
+						lowStr = lowStr + ", " + str(product.name)
+					messages.add_message(request, messages.WARNING, lowStr)
 				return HttpResponseRedirect(reverse('admin:app_list', args=("welcome",))) #Redirect to "welcome" app in admin page.
 			else: #Otherwise, the user is just a customer and is directed to the regular customer view.
 				return HttpResponseRedirect(reverse('customer'))
