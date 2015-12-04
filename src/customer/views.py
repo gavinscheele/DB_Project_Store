@@ -81,9 +81,9 @@ def customer(request):
 					messages.add_message(request, messages.INFO, 'You ordered more than the stock quantity. Returning to order page.')
 					return HttpResponseRedirect(reverse('customer'))
 
-				if int(quant) == 0:
+				if int(quant) <= 0:
 					order_obj.delete()
-					messages.add_message(request, messages.INFO, 'You can\'t order 0 products. Returning to customer page.')
+					messages.add_message(request, messages.INFO, 'Invalid product quantity. Returning to customer page.')
 					return HttpResponseRedirect(reverse('customer'))
 
 				order_obj.save()
