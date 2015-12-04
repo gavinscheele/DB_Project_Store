@@ -128,9 +128,12 @@ def customer(request):
 
 def customer_edit_user(request):
 	UserID = request.session.get('UserID')
+	current_user = models.User.objects.filter(id=int(UserID))
+	if not current_user:
+		UserID = "guest"
 	if str(UserID) == "guest": #If they're not logged in, redirect to Welcome (guest) page
 		return HttpResponseRedirect(reverse('welcome'))
-	current_user = models.User.objects.get(id=UserID)
+	current_user = models.User.objects.get(id=int(UserID))
 	delete_user = request.GET.get("delete_user")
 
 	if current_user.is_staff:
