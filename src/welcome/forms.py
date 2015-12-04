@@ -30,9 +30,10 @@ class UserAdminForm(forms.ModelForm):
 		cleaned_data = super(UserAdminForm, self).clean()
 		formEmail = cleaned_data.get("email")
 		if formEmail:
-			if models.User.objects.filter(email=formEmail): #If the set is not empty, there is already a user with this email.
+			if models.User.objects.filter(email=formEmail).exclude(id=self.instance.id): #If the set is not empty, there is already a user with this email.
 				raise forms.ValidationError("There is already a user with this email address.")
 
 class DeleteUserForm(forms.Form):
 	delete_user = forms.CharField(max_length=5)
+
 
