@@ -12,11 +12,17 @@ def welcome(request):
 	if product_name:
 		request.session['product_search_name'] = product_name
 
+	if show_all:
+		request.session['product_search_name'] = None
+
 	sorting = request.GET.get('sort')
 	print(sorting)
 
 	if (product_name or sorting) and not show_all:
-		table = tables.ProductTable(models.Product.objects.filter(name__contains=request.session.get('product_search_name'), active=True))
+		query_product_name = request.session.get('product_search_name')
+		if not query_product_name:
+			query_product_name = ""
+		table = tables.ProductTable(models.Product.objects.filter(name__contains=query_product_name, active=True))
 	else:
 		table = tables.ProductTable(models.Product.objects.filter(active=True))
 
