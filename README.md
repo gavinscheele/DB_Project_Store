@@ -9,7 +9,7 @@ To run the project on windows:
 1. Clone the project into your desired directory.
 </td></tr>
 <tr><td>
-2. Navigate to DB_Project_Store/Scripts in command prompt. Type activate to enter the virtual environment.
+2. Navigate to DB_Project_Store/Scripts in command prompt. Type "activate" to enter the virtual environment.
 </td></tr>
 <tr><td>
 3. Navigate to DB_Project_Store/src
